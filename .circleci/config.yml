@@ -19,17 +19,12 @@ jobs:
                 command: mvn surefire-report:report  # Generate the test report
       - store_test_results:
           path: target/surefire-reports  # Store test results
-      - run:
-          name: Creating Dummy Artifacts
-          command: |
-            echo "my artifact file" > /tmp/art-1
-            mkdir /tmp/artifacts
-            echo "my artifact files in a dir" > /tmp/artifacts/art-2
-      - store_artifacts: 
-          path: /tmp/art-1
-          destination: artifact-file
       - store_artifacts:
-          path: /tmp/artifacts
+          path: target/surefire-reports  # Store Surefire report artifacts
+          destination: surefire-reports
+      - store_artifacts:
+          path: target/site/surefire-report.html  # Store the Surefire report file
+          destination: sure-fire-report.html
           
 workflows:
   build-and-test:
