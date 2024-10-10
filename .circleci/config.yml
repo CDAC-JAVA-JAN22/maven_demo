@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  maven: circleci/maven@3.0.0  # Use the Maven orb
+  maven: circleci/maven@1.4.1  # Use the Maven orb
 
 jobs:
   test-java:
