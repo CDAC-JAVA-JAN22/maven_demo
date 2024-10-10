@@ -2,13 +2,12 @@ version: 2.1
 
 orbs:
   maven: circleci/maven@1.4.1  # Use the Maven orb
-
+  
 jobs:
   test-java:
     docker:
       - image: cimg/openjdk:17.0
     steps:
-      - checkout
       - maven/with_cache:  # Use the Maven orb to handle caching and dependencies
           steps:
             - run:
@@ -16,14 +15,6 @@ jobs:
                 command: mvn verify
       - store_test_results:
           path: target/surefire-reports  # Store test results
-
-  deploy:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'  # Replace with actual deploy command
 
 workflows:
   build-and-test:
