@@ -22,9 +22,7 @@ jobs:
       - store_artifacts:
           path: target/surefire-reports  # Store Surefire report artifacts
           destination: surefire-reports
-      - store_artifacts:
-          path: target/site/surefire-report.html  # Store the Surefire report file
-          destination: sure-fire-report.html
+     
           
 workflows:
   build-and-test:
