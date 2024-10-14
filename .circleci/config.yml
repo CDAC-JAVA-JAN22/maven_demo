@@ -12,7 +12,6 @@ jobs:
     docker:
       - image: cimg/openjdk:17.0
     steps:
-      - checkout
       - maven/with_cache:  
           steps:
             - run:
